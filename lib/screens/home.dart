@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_recipies/models/recipe.dart';
+import 'package:my_recipies/models/recipe.m.dart';
 import 'package:my_recipies/widgets/large_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -65,6 +65,11 @@ class HomeScreen extends StatelessWidget {
                     title: 'Recipe Title',
                     description:
                         'some description abouth this recipe, it is very nice and tasty',
+                    ingredients: [
+                      '2 eggs',
+                      '1/2 cup flour',
+                      '3/4 cup sugar',
+                    ],
                   ),
                 ),
               ],

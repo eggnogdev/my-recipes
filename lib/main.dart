@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:my_recipies/screens/home.dart';
+import 'package:my_recipies/screens/recipe.dart';
 import 'package:my_recipies/theme/color_schemes.g.dart';
 
 void main() {
@@ -17,7 +19,22 @@ class MYrecipies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final router = GoRouter(
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const HomeScreen(),
+          routes: [
+            GoRoute(
+              path: 'recipies/:id',
+              builder: (context, state) => const RecipeScreen(),
+            )
+          ],
+        ),
+      ],
+    );
+
+    return MaterialApp.router(
       theme: ThemeData(
         colorScheme: lightColorScheme,
         typography: Typography.material2021(
@@ -30,9 +47,7 @@ class MYrecipies extends StatelessWidget {
           colorScheme: darkColorScheme,
         ),
       ),
-      home: const Material(
-        child: HomeScreen(),
-      ),
+      routerConfig: router,
     );
   }
 }

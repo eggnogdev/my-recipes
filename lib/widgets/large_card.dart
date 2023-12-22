@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_recipies/models/recipe.dart';
+import 'package:go_router/go_router.dart';
+import 'package:my_recipies/models/recipe.m.dart';
 
 class LargeRecipeCard extends StatelessWidget {
   const LargeRecipeCard({
@@ -19,7 +20,9 @@ class LargeRecipeCard extends StatelessWidget {
       elevation: 6.0,
       child: InkWell(
         borderRadius: BorderRadius.circular(16.0),
-        onTap: () {},
+        onTap: () {
+          context.go('/recipies/0');
+        },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
