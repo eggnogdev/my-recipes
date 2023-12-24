@@ -4,10 +4,9 @@ import 'package:my_recipies/models/units/unit.m.dart';
 class Liter with Measurement {
   Liter({
     required double value,
-    required Unit unit,
   }) {
     this.value = value;
-    this.unit = unit;
+    unit = Unit.liter();
   }
 
   @override

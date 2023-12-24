@@ -1,41 +1,36 @@
 class Unit {
   const Unit({
-    required this.abbreviation,
+    required this.shortForm,
     required this.longForm,
     required this.system,
-    required this.unitType,
   });
 
-  final String abbreviation;
+  final String shortForm;
   final String longForm;
   final UnitSystem system;
-  final UnitType? unitType;
 
   factory Unit.milliliter() {
     return const Unit(
-      abbreviation: 'ml',
+      shortForm: 'ml',
       longForm: 'milliliter',
       system: UnitSystem.metric,
-      unitType: UnitType.liquid,
     );
   }
 
   factory Unit.liter() {
     return const Unit(
-      abbreviation: 'l',
+      shortForm: 'l',
       longForm: 'liter',
       system: UnitSystem.metric,
-      unitType: UnitType.liquid,
     );
   }
 
   @override
   bool operator ==(Object other) {
     return other is Unit &&
-        other.abbreviation == abbreviation &&
+        other.shortForm == shortForm &&
         other.longForm == longForm &&
-        other.system == system &&
-        other.unitType == unitType;
+        other.system == system;
   }
 
   @override
@@ -45,9 +40,4 @@ class Unit {
 enum UnitSystem {
   metric,
   customary,
-}
-
-enum UnitType {
-  liquid,
-  solid,
 }

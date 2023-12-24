@@ -4,10 +4,9 @@ import 'package:my_recipies/models/units/unit.m.dart';
 class Milliliter with Measurement {
   Milliliter({
     required double value,
-    required Unit unit,
   }) {
     this.value = value;
-    this.unit = unit;
+    unit = Unit.milliliter();
   }
 
   @override

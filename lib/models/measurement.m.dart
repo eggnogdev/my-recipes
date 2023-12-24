@@ -2,20 +2,17 @@ import 'package:my_recipies/models/units/metric/liter.m.dart';
 import 'package:my_recipies/models/units/metric/milliliter.m.dart';
 import 'package:my_recipies/models/units/unit.m.dart';
 
-/// Measurement mixin class defines [convertTo] method and factories that will
-/// easily instantiate supported measurements
+/// The main mixin class used to create [Measurement]s for [Ingredient].
 ///
 /// Each measurement that this app supports (milliliter, us cups, etc) mixins
-/// this mixin class. The defined [convertTo] method allows each measurement to
-/// perform their own operations to get from its own [Unit] to another
+/// [Measurement]
 ///
-///
+/// Each measurement has their own class which is abstracted by [Measurement]
+/// because they each need their own [convertTo] method, which is required by
+/// [Measurement]
 abstract mixin class Measurement {
   /// the quantity (`value` cups, `value` milliliters)
   double value = -1;
-
-  /// the type of measurement
-  MeasurementType? measurementType;
 
   /// unit information about this measurement
   late Unit unit;
@@ -24,21 +21,10 @@ abstract mixin class Measurement {
   Measurement convertTo(Unit other);
 
   factory Measurement.milliliter(double value) {
-    return Milliliter(
-      value: value,
-      unit: Unit.milliliter(),
-    );
+    return Milliliter(value: value);
   }
 
   factory Measurement.liter(double value) {
-    return Liter(
-      value: value,
-      unit: Unit.liter(),
-    );
+    return Liter(value: value);
   }
-}
-
-enum MeasurementType {
-  mass,
-  volume,
 }

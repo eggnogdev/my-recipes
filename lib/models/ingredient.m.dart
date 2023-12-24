@@ -20,7 +20,7 @@ class Ingredient {
 
   @override
   String toString() {
-    final res = '{}${measurement.unit.abbreviation} $item';
+    final res = '{}${measurement.unit.shortForm} $item';
     if (measurement.value % 1 == 0) {
       return res.format(measurement.value.floor());
     } else {
