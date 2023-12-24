@@ -1,3 +1,4 @@
+import 'package:format/format.dart';
 import 'package:my_recipies/models/measurement.m.dart';
 import 'package:my_recipies/models/units/unit.m.dart';
 
@@ -19,6 +20,11 @@ class Ingredient {
 
   @override
   String toString() {
-    return '${measurement.value}${measurement.unit.abbreviation} $item';
+    final res = '{}${measurement.unit.abbreviation} $item';
+    if (measurement.value % 1 == 0) {
+      return res.format(measurement.value.floor());
+    } else {
+      return res.format(measurement.value.toStringAsFixed(2));
+    }
   }
 }
