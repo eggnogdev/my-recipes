@@ -1,5 +1,5 @@
-import 'package:my_recipies/models/measurement.m.dart';
-import 'package:my_recipies/models/units/unit.m.dart';
+import 'package:my_recipies/models/measurements/measurement.m.dart';
+import 'package:my_recipies/models/measurements/unit.m.dart';
 
 class Milliliter with Measurement {
   Milliliter({

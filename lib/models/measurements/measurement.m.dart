@@ -1,6 +1,6 @@
-import 'package:my_recipies/models/units/metric/liter.m.dart';
-import 'package:my_recipies/models/units/metric/milliliter.m.dart';
-import 'package:my_recipies/models/units/unit.m.dart';
+import 'package:my_recipies/models/measurements/metric/liter.m.dart';
+import 'package:my_recipies/models/measurements/metric/milliliter.m.dart';
+import 'package:my_recipies/models/measurements/unit.m.dart';
 
 /// The main mixin class used to create [Measurement]s for [Ingredient].
 ///
