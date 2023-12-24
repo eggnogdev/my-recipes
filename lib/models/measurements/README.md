@@ -1,6 +1,6 @@
 # Measurement Models
 
-How to add a new unit model to the app. Each unit needs its own model, mostly so they each can have their own conversion method.
+How to add a new measurement model to the app. Each measuremnt needs its own model, mostly so they each can have their own conversion method.
 
 ## lib/models/units/unit.m.dart
 
