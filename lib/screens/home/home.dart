@@ -3,6 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:my_recipies/models/hive_boxes.dart';
 import 'package:my_recipies/models/recipe.m.dart';
 import 'package:my_recipies/screens/home/widgets/recipe_card.dart';
+import 'package:my_recipies/widgets/expandable_fab.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,6 +12,7 @@ class HomeScreen extends StatelessWidget {
   });
 
   final recipies = Hive.box<Recipe>(HiveBox.recipies.name).values;
+  final controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -94,11 +96,18 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: ExpandableFloatingActionButton(
+        icon: Icons.add_rounded,
+        label: 'Create',
+        scrollController: controller,
+        onPressed: () {},
+      ),
       body: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
         ),
         child: ListView.builder(
+          controller: controller,
           itemBuilder: (context, index) => [
             Container(
               margin: const EdgeInsets.only(
