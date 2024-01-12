@@ -1,24 +1,27 @@
 import 'package:hive/hive.dart';
-import 'package:my_recipies/models/ingredient.m.dart';
 
 part 'recipe.m.g.dart';
 
 @HiveType(typeId: 0)
 class Recipe extends HiveObject {
   Recipe({
+    required this.uuid,
     required this.title,
     required this.description,
     required this.ingredients,
   });
 
   @HiveField(0)
-  final String title;
+  final String uuid;
 
   @HiveField(1)
-  final String description;
+  final String title;
 
   @HiveField(2)
-  final List<Ingredient> ingredients;
+  final String description;
+
+  @HiveField(3)
+  final List<String> ingredients;
 
   factory Recipe.fromHive(String uuid) {
     final box = Hive.box<Recipe>('recipies');
