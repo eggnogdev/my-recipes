@@ -120,3 +120,7 @@ factory Measurement.</>(double value) {
 just replace the `</>` placeholder with your unit, ideally the same name as the `Unit` factory constructor you created earlier. And of course change the `TemplateMeasurement` to the name of the `Measurement` model you just created.
 
 Now the new `Measurement` can be used so easily and convert between all the other units
+
+## Hive Objects
+
+Make sure you update all your newly added files to work with Hive. You can use the existing files as reference or ask for help from eggnog.

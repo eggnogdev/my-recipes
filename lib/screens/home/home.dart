@@ -106,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
-            const RecipeCard(
+            RecipeCard(
               recipe: Recipe(
                 title: 'Title',
                 description:
