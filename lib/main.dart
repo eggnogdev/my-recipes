@@ -41,6 +41,9 @@ class MYrecipies extends StatelessWidget {
         typography: Typography.material2021(
           colorScheme: lightColorScheme,
         ),
+        appBarTheme: const AppBarTheme(
+          scrolledUnderElevation: 0,
+        ),
       ),
       darkTheme: ThemeData(
         useMaterial3: true,

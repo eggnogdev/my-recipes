@@ -3,7 +3,9 @@ import 'package:my_recipies/models/recipe.m.dart';
 import 'package:my_recipies/screens/home/widgets/recipe_card.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +40,20 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16.0,
+        ),
         child: ListView.builder(
           itemBuilder: (context, index) => [
-            const SizedBox(height: 32.0),
-            Text(
-              'MYRecipies',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Container(
+              margin: const EdgeInsets.only(
+                top: 32.0,
+                bottom: 20.0,
+              ),
+              child: Text(
+                'MYRecipies',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
             ),
             const RecipeCard(
               recipe: Recipe(
@@ -55,7 +64,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ][index],
-          itemCount: 3,
+          itemCount: 2,
         ),
       ),
     );
