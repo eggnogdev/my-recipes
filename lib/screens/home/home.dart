@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_recipies/models/recipe.m.dart';
 import 'package:my_recipies/screens/home/widgets/recipe_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -46,7 +47,12 @@ class HomeScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const RecipeCard(
-              title: 'Title',
+              recipe: Recipe(
+                title: 'Title',
+                description:
+                    'Lorem ipsum dolor sit amet cosectetur adipiscing elit sed do eiusmod tempor',
+                ingredients: [],
+              ),
             ),
           ][index],
           itemCount: 3,

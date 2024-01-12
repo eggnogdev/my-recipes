@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:my_recipies/models/recipe.m.dart';
 
 class RecipeCard extends StatelessWidget {
   const RecipeCard({
     super.key,
-    required this.title,
+    required this.recipe,
   });
 
-  final String title;
+  final Recipe recipe;
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +40,11 @@ class RecipeCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      recipe.title,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     Text(
-                      'Lorem ipsum dolor sit amet cosectetur adipiscing elit sed do eiusmod tempor',
+                      recipe.description,
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
