@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_recipies/models/recipe.m.dart';
 import 'package:my_recipies/screens/home/widgets/recipe_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -27,7 +28,32 @@ class HomeScreen extends StatelessWidget {
               size: 24.0,
               color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text(
+                    'Source code',
+                  ),
+                  content: const Text(
+                    'View the full source code on Codeberg!',
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        launchUrl(
+                          Uri.parse('https://codeberg.org/eggnog/my_recipies'),
+                          mode: LaunchMode.externalApplication,
+                        );
+                      },
+                      child: const Text(
+                        'Go!',
+                      ),
+                    )
+                  ],
+                ),
+              );
+            },
           ),
           IconButton(
             icon: Icon(
@@ -35,7 +61,32 @@ class HomeScreen extends StatelessWidget {
               size: 24.0,
               color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text(
+                    'Send some love!',
+                  ),
+                  content: const Text(
+                    'Do you like this app and would like to support development? Consider donating!',
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        launchUrl(
+                          Uri.parse('https://ko-fi.com/eggnogdev'),
+                          mode: LaunchMode.externalApplication,
+                        );
+                      },
+                      child: const Text(
+                        'Go!',
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
         ],
       ),
