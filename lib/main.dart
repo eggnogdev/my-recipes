@@ -36,12 +36,14 @@ class MYrecipies extends StatelessWidget {
 
     return MaterialApp.router(
       theme: ThemeData(
+        useMaterial3: true,
         colorScheme: lightColorScheme,
         typography: Typography.material2021(
           colorScheme: lightColorScheme,
         ),
       ),
       darkTheme: ThemeData(
+        useMaterial3: true,
         colorScheme: darkColorScheme,
         typography: Typography.material2021(
           colorScheme: darkColorScheme,
