@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_recipies/screens/home.dart';
+import 'package:my_recipies/screens/home/home.dart';
 import 'package:my_recipies/screens/recipe.dart';
 import 'package:my_recipies/theme/color_schemes.g.dart';
 
