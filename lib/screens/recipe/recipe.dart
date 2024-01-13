@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_recipies/screens/recipe/state/recipe.s.dart';
 import 'package:my_recipies/widgets/ingredient_list_item.dart';
 
 class RecipeScreen extends StatelessWidget {
-  const RecipeScreen({super.key});
+  const RecipeScreen({
+    super.key,
+    required this.state,
+  });
+
+  final RecipeState state;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: const Text('recipe'),
+        title: Text(
+          state.recipe.title,
+        ),
         leading: IconButton(
           splashRadius: 20.0,
           onPressed: () {

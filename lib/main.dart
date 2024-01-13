@@ -9,8 +9,10 @@ import 'package:my_recipies/models/measurements/metric/milliliter.m.dart';
 import 'package:my_recipies/models/measurements/unit.m.dart';
 import 'package:my_recipies/models/recipe.m.dart';
 import 'package:my_recipies/screens/home/home.dart';
-import 'package:my_recipies/screens/recipe.dart';
+import 'package:my_recipies/screens/recipe/recipe.dart';
+import 'package:my_recipies/screens/recipe/state/recipe.s.dart';
 import 'package:my_recipies/theme/color_schemes.g.dart';
+import 'package:uuid/uuid.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,8 +29,6 @@ void main() async {
     ..registerAdapter(UnitAdapter())
     ..registerAdapter(UnitSystemAdapter());
 
-  await Hive.openBox<Recipe>(HiveBox.recipies.name);
-
   runApp(const MYrecipies());
 }
 
@@ -44,8 +44,12 @@ class MYrecipies extends StatelessWidget {
           builder: (context, state) => HomeScreen(),
           routes: [
             GoRoute(
-              path: 'recipies/:id',
-              builder: (context, state) => const RecipeScreen(),
+              path: 'recipies/:uuid',
+              builder: (context, state) => RecipeScreen(
+                state: RecipeState(
+                  uuid: state.pathParameters['uuid']!,
+                ),
+              ),
             )
           ],
         ),
