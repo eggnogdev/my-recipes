@@ -5,11 +5,10 @@ import 'package:my_recipies/models/measurements/unit.m.dart';
 part 'liter.m.g.dart';
 
 @HiveType(typeId: 2)
-class Liter extends HiveObject with Measurement {
+class Liter extends HiveObject implements Measurement {
   Liter({
-    required double value,
+    required this.value,
   }) {
-    this.value = value;
     unit = Unit.liter();
   }
 
@@ -21,4 +20,12 @@ class Liter extends HiveObject with Measurement {
       return convertTo(Unit.milliliter()).convertTo(other);
     }
   }
+
+  @override
+  @HiveField(0)
+  late Unit unit;
+
+  @override
+  @HiveField(1)
+  double value;
 }

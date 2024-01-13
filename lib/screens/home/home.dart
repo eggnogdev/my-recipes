@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:my_recipies/models/hive_boxes.dart';
+import 'package:my_recipies/models/recipe.m.dart';
+import 'package:my_recipies/screens/home/widgets/recipe_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({
+  HomeScreen({
     super.key,
   });
+
+  final recipies = Hive.box<Recipe>(HiveBox.recipies.name).values;
 
   @override
   Widget build(BuildContext context) {
@@ -104,8 +110,9 @@ class HomeScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
+            for (final recipe in recipies) RecipeCard(recipe: recipe),
           ][index],
-          itemCount: 1,
+          itemCount: 1 + recipies.length,
         ),
       ),
     );

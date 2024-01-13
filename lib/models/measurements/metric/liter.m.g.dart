@@ -17,8 +17,8 @@ class LiterAdapter extends TypeAdapter<Liter> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Liter(
-      value: fields[0] as double,
-    )..unit = fields[1] as Unit;
+      value: fields[1] as double,
+    )..unit = fields[0] as Unit;
   }
 
   @override
@@ -26,9 +26,9 @@ class LiterAdapter extends TypeAdapter<Liter> {
     writer
       ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.value)
+      ..write(obj.unit)
       ..writeByte(1)
-      ..write(obj.unit);
+      ..write(obj.value);
   }
 
   @override

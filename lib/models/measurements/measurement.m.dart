@@ -1,4 +1,3 @@
-import 'package:hive/hive.dart';
 import 'package:my_recipies/models/measurements/metric/liter.m.dart';
 import 'package:my_recipies/models/measurements/metric/milliliter.m.dart';
 import 'package:my_recipies/models/measurements/unit.m.dart';
@@ -11,20 +10,20 @@ import 'package:my_recipies/models/measurements/unit.m.dart';
 /// Each measurement has their own class which is abstracted by [Measurement]
 /// because they each need their own [convertTo] method, which is required by
 /// [Measurement]
-@HiveType(typeId: 3)
-abstract mixin class Measurement {
-  /// the quantity (`value` cups, `value` milliliters)
+abstract class Measurement {
+  Measurement({
+    required this.value,
+    required this.unit,
+  });
 
-  @HiveField(0)
-  double value = -1;
+  /// the quantity (`value` cups, `value` milliliters)
+  double value;
 
   /// unit information about this measurement
-
-  @HiveField(1)
-  late Unit unit;
+  Unit unit;
 
   /// convert from `this.unit` to `other`
-  Measurement convertTo(Unit other);
+  Measurement convertTo(Unit other) => throw UnimplementedError();
 
   factory Measurement.milliliter(double value) {
     return Milliliter(value: value);
