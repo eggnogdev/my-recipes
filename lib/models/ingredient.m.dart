@@ -1,14 +1,21 @@
 import 'package:format/format.dart';
 import 'package:my_recipies/models/measurements/measurement.m.dart';
 import 'package:my_recipies/models/measurements/unit.m.dart';
+import 'package:hive/hive.dart';
 
-class Ingredient {
-  const Ingredient({
+part 'ingredient.m.g.dart';
+
+@HiveType(typeId: 1)
+class Ingredient extends HiveObject {
+  Ingredient({
     required this.measurement,
     required this.item,
   });
 
+  @HiveField(0)
   final Measurement measurement;
+
+  @HiveField(1)
   final String item;
 
   Ingredient convertTo(Unit other) {

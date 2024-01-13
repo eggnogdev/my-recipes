@@ -10,15 +10,20 @@ import 'package:my_recipies/models/measurements/unit.m.dart';
 /// Each measurement has their own class which is abstracted by [Measurement]
 /// because they each need their own [convertTo] method, which is required by
 /// [Measurement]
-abstract mixin class Measurement {
+abstract class Measurement {
+  Measurement({
+    required this.value,
+    required this.unit,
+  });
+
   /// the quantity (`value` cups, `value` milliliters)
-  double value = -1;
+  double value;
 
   /// unit information about this measurement
-  late Unit unit;
+  Unit unit;
 
   /// convert from `this.unit` to `other`
-  Measurement convertTo(Unit other);
+  Measurement convertTo(Unit other) => throw UnimplementedError();
 
   factory Measurement.milliliter(double value) {
     return Milliliter(value: value);

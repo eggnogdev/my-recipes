@@ -1,16 +1,26 @@
-class Unit {
-  const Unit({
+import 'package:hive/hive.dart';
+
+part 'unit.m.g.dart';
+
+@HiveType(typeId: 4)
+class Unit extends HiveObject {
+  Unit({
     required this.shortForm,
     required this.longForm,
     required this.system,
   });
 
+  @HiveField(0)
   final String shortForm;
+
+  @HiveField(1)
   final String longForm;
+
+  @HiveField(2)
   final UnitSystem system;
 
   factory Unit.milliliter() {
-    return const Unit(
+    return Unit(
       shortForm: 'ml',
       longForm: 'milliliter',
       system: UnitSystem.metric,
@@ -18,7 +28,7 @@ class Unit {
   }
 
   factory Unit.liter() {
-    return const Unit(
+    return Unit(
       shortForm: 'l',
       longForm: 'liter',
       system: UnitSystem.metric,
@@ -37,7 +47,10 @@ class Unit {
   int get hashCode => longForm.hashCode;
 }
 
+@HiveType(typeId: 5)
 enum UnitSystem {
+  @HiveField(0)
   metric,
+  @HiveField(1)
   customary,
 }

@@ -1,11 +1,14 @@
+import 'package:hive/hive.dart';
 import 'package:my_recipies/models/measurements/measurement.m.dart';
 import 'package:my_recipies/models/measurements/unit.m.dart';
 
-class Milliliter with Measurement {
+part 'milliliter.m.g.dart';
+
+@HiveType(typeId: 6)
+class Milliliter extends HiveObject implements Measurement {
   Milliliter({
-    required double value,
+    required this.value,
   }) {
-    this.value = value;
     unit = Unit.milliliter();
   }
 
@@ -19,4 +22,12 @@ class Milliliter with Measurement {
       );
     }
   }
+
+  @override
+  @HiveField(0)
+  late Unit unit;
+
+  @override
+  @HiveField(1)
+  double value;
 }
