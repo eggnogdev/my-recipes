@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_recipies/models/recipe.m.dart';
-import 'package:my_recipies/screens/recipe/recipe.dart';
-import 'package:my_recipies/screens/recipe/state/recipe.s.dart';
 
 class RecipeCard extends StatelessWidget {
   const RecipeCard({
