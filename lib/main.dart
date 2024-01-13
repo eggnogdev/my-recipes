@@ -11,7 +11,6 @@ import 'package:my_recipies/models/recipe.m.dart';
 import 'package:my_recipies/screens/home/home.dart';
 import 'package:my_recipies/screens/recipe.dart';
 import 'package:my_recipies/theme/color_schemes.g.dart';
-import 'package:uuid/uuid.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
