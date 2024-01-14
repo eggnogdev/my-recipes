@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:my_recipies/models/hive_boxes.dart';
 import 'package:my_recipies/models/ingredient.m.dart';
 import 'package:my_recipies/models/measurements/metric/liter.m.dart';
 import 'package:my_recipies/models/measurements/metric/milliliter.m.dart';
@@ -26,6 +27,8 @@ void main() async {
     ..registerAdapter(LiterAdapter())
     ..registerAdapter(UnitAdapter())
     ..registerAdapter(UnitSystemAdapter());
+
+  await Hive.openBox<Recipe>(HiveBox.recipies.name);
 
   runApp(const MYrecipies());
 }
