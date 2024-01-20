@@ -4,14 +4,15 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:my_recipies/models/hive_boxes.dart';
 import 'package:my_recipies/models/ingredient.m.dart';
-import 'package:my_recipies/models/measurements/metric/liter.m.dart';
-import 'package:my_recipies/models/measurements/metric/milliliter.m.dart';
-import 'package:my_recipies/models/measurements/unit.m.dart';
 import 'package:my_recipies/models/recipe.m.dart';
+import 'package:my_recipies/models/recipe_image.m.dart';
+import 'package:my_recipies/models/recipe_instruction.m.dart';
 import 'package:my_recipies/screens/home/home.dart';
 import 'package:my_recipies/screens/recipe/recipe.dart';
 import 'package:my_recipies/screens/recipe/state/recipe.s.dart';
+import 'package:my_recipies/state/home.s.dart';
 import 'package:my_recipies/theme/color_schemes.g.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,10 +24,8 @@ void main() async {
   Hive
     ..registerAdapter(RecipeAdapter())
     ..registerAdapter(IngredientAdapter())
-    ..registerAdapter(MilliliterAdapter())
-    ..registerAdapter(LiterAdapter())
-    ..registerAdapter(UnitAdapter())
-    ..registerAdapter(UnitSystemAdapter());
+    ..registerAdapter(RecipeInstructionAdapter())
+    ..registerAdapter(RecipeImageAdapter());
 
   await Hive.openBox<Recipe>(HiveBox.recipies.name);
 
@@ -57,25 +56,28 @@ class MYrecipies extends StatelessWidget {
       ],
     );
 
-    return MaterialApp.router(
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: lightColorScheme,
-        typography: Typography.material2021(
+    return Provider(
+      create: (context) => HomeState()..loadRecipies(),
+      child: MaterialApp.router(
+        theme: ThemeData(
+          useMaterial3: true,
           colorScheme: lightColorScheme,
+          typography: Typography.material2021(
+            colorScheme: lightColorScheme,
+          ),
+          appBarTheme: const AppBarTheme(
+            scrolledUnderElevation: 0,
+          ),
         ),
-        appBarTheme: const AppBarTheme(
-          scrolledUnderElevation: 0,
-        ),
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        colorScheme: darkColorScheme,
-        typography: Typography.material2021(
+        darkTheme: ThemeData(
+          useMaterial3: true,
           colorScheme: darkColorScheme,
+          typography: Typography.material2021(
+            colorScheme: darkColorScheme,
+          ),
         ),
+        routerConfig: router,
       ),
-      routerConfig: router,
     );
   }
 }

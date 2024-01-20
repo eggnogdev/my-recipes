@@ -1,34 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'milliliter.m.dart';
+part of 'recipe_image.m.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class MilliliterAdapter extends TypeAdapter<Milliliter> {
+class RecipeImageAdapter extends TypeAdapter<RecipeImage> {
   @override
-  final int typeId = 6;
+  final int typeId = 2;
 
   @override
-  Milliliter read(BinaryReader reader) {
+  RecipeImage read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Milliliter(
-      value: fields[1] as double,
-    )..unit = fields[0] as Unit;
+    return RecipeImage(
+      url: fields[0] as String,
+    );
   }
 
   @override
-  void write(BinaryWriter writer, Milliliter obj) {
+  void write(BinaryWriter writer, RecipeImage obj) {
     writer
-      ..writeByte(2)
-      ..writeByte(0)
-      ..write(obj.unit)
       ..writeByte(1)
-      ..write(obj.value);
+      ..writeByte(0)
+      ..write(obj.url);
   }
 
   @override
@@ -37,7 +35,7 @@ class MilliliterAdapter extends TypeAdapter<Milliliter> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MilliliterAdapter &&
+      other is RecipeImageAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

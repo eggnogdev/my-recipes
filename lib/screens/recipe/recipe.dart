@@ -17,7 +17,7 @@ class RecipeScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          state.recipe.title,
+          state.recipe.name,
         ),
         leading: IconButton(
           splashRadius: 20.0,

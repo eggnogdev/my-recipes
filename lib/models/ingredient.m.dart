@@ -1,37 +1,24 @@
-import 'package:format/format.dart';
-import 'package:my_recipies/models/measurements/measurement.m.dart';
-import 'package:my_recipies/models/measurements/unit.m.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:html_recipe_parser/html_recipe_parser.dart' as parser;
 
 part 'ingredient.m.g.dart';
 
 @HiveType(typeId: 1)
-class Ingredient extends HiveObject {
+class Ingredient extends HiveObject implements parser.Ingredient {
   Ingredient({
-    required this.measurement,
-    required this.item,
+    required this.text,
   });
 
   @HiveField(0)
-  final Measurement measurement;
-
-  @HiveField(1)
-  final String item;
-
-  Ingredient convertTo(Unit other) {
-    return Ingredient(
-      measurement: measurement.convertTo(other),
-      item: item,
-    );
-  }
-
   @override
-  String toString() {
-    final res = '{}${measurement.unit.shortForm} $item';
-    if (measurement.value % 1 == 0) {
-      return res.format(measurement.value.floor());
-    } else {
-      return res.format(measurement.value.toStringAsFixed(2));
-    }
+  final String text;
+
+  static List<Ingredient> fromParsed(List<parser.Ingredient> parsed) {
+    return [
+      for (final ing in parsed)
+        Ingredient(
+          text: ing.text,
+        )
+    ];
   }
 }

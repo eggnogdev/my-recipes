@@ -1,34 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'liter.m.dart';
+part of 'recipe_instruction.m.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class LiterAdapter extends TypeAdapter<Liter> {
+class RecipeInstructionAdapter extends TypeAdapter<RecipeInstruction> {
   @override
-  final int typeId = 2;
+  final int typeId = 3;
 
   @override
-  Liter read(BinaryReader reader) {
+  RecipeInstruction read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Liter(
-      value: fields[1] as double,
-    )..unit = fields[0] as Unit;
+    return RecipeInstruction(
+      text: fields[0] as String,
+    );
   }
 
   @override
-  void write(BinaryWriter writer, Liter obj) {
+  void write(BinaryWriter writer, RecipeInstruction obj) {
     writer
-      ..writeByte(2)
-      ..writeByte(0)
-      ..write(obj.unit)
       ..writeByte(1)
-      ..write(obj.value);
+      ..writeByte(0)
+      ..write(obj.text);
   }
 
   @override
@@ -37,7 +35,7 @@ class LiterAdapter extends TypeAdapter<Liter> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is LiterAdapter &&
+      other is RecipeInstructionAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
