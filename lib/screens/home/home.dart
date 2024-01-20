@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_recipies/screens/create_recipe/create_recipe.dart';
-import 'package:my_recipies/screens/home/widgets/recipe_card.dart';
-import 'package:my_recipies/state/home.s.dart';
-import 'package:my_recipies/widgets/expandable_fab.dart';
+import 'package:my_recipes/screens/create_recipe/create_recipe.dart';
+import 'package:my_recipes/screens/home/widgets/recipe_card.dart';
+import 'package:my_recipes/state/home.s.dart';
+import 'package:my_recipes/widgets/expandable_fab.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                     TextButton(
                       onPressed: () {
                         launchUrl(
-                          Uri.parse('https://codeberg.org/eggnog/my_recipies'),
+                          Uri.parse('https://codeberg.org/eggnog/my_recipes'),
                           mode: LaunchMode.externalApplication,
                         );
                       },
@@ -123,16 +123,16 @@ class HomeScreen extends StatelessWidget {
                   bottom: 20.0,
                 ),
                 child: Text(
-                  'MYRecipies',
+                  'MYRecipes',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ),
-              for (final recipe in state.recipies)
+              for (final recipe in state.recipes)
                 RecipeCard(
                   recipe: recipe,
                 ),
             ][index],
-            itemCount: 1 + state.recipies.length,
+            itemCount: 1 + state.recipes.length,
           );
         }),
       ),

@@ -1,4 +1,4 @@
-name: my_recipies
+name: my_recipes
 description: A recipe aggregator and viewer
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 

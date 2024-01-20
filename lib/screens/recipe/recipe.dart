@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_recipies/screens/recipe/state/recipe.s.dart';
-import 'package:my_recipies/widgets/ingredient_list_item.dart';
+import 'package:my_recipes/screens/recipe/state/recipe.s.dart';
+import 'package:my_recipes/widgets/ingredient_list_item.dart';
 
 class RecipeScreen extends StatelessWidget {
   const RecipeScreen({

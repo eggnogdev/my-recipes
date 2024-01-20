@@ -1,3 +1,3 @@
 enum HiveBox {
-  recipies,
+  recipes,
 }

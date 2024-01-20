@@ -1,4 +1,4 @@
-package dev.eggnog.my_recipies
+package dev.eggnog.my_recipes
 
 import io.flutter.embedding.android.FlutterActivity
 

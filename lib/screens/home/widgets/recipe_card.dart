@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_recipies/models/recipe.m.dart';
+import 'package:my_recipes/models/recipe.m.dart';
 
 class RecipeCard extends StatelessWidget {
   const RecipeCard({
@@ -33,7 +33,7 @@ class RecipeCard extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(16.0),
         onTap: () {
-          context.go('/recipies/${recipe.uuid}');
+          context.go('/recipes/${recipe.uuid}');
         },
         child: SizedBox(
           height: height,
