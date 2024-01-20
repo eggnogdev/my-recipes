@@ -12,4 +12,10 @@ class RecipeImage extends HiveObject implements parser.RecipeImage {
   @HiveField(0)
   @override
   final String url;
+
+  factory RecipeImage.fromParsed(parser.RecipeImage parsed) {
+    return RecipeImage(
+      url: parsed.url,
+    );
+  }
 }

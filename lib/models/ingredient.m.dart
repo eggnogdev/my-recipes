@@ -12,4 +12,13 @@ class Ingredient extends HiveObject implements parser.Ingredient {
   @HiveField(0)
   @override
   final String text;
+
+  static List<Ingredient> fromParsed(List<parser.Ingredient> parsed) {
+    return [
+      for (final ing in parsed)
+        Ingredient(
+          text: ing.text,
+        )
+    ];
+  }
 }

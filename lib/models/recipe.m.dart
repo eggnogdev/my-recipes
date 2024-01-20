@@ -20,7 +20,7 @@ class Recipe extends HiveObject implements parser.Recipe {
   });
 
   @HiveField(0)
-  final Uuid uuid;
+  final String uuid;
 
   @HiveField(1)
   @override
@@ -41,4 +41,18 @@ class Recipe extends HiveObject implements parser.Recipe {
   @HiveField(5)
   @override
   final String name;
+
+  factory Recipe.fromParsed(parser.Recipe parsed) {
+    final uuid = const Uuid().v1();
+    return Recipe(
+      uuid: uuid,
+      description: parsed.description,
+      image: RecipeImage.fromParsed(
+        parsed.image,
+      ),
+      ingredients: Ingredient.fromParsed(parsed.ingredients),
+      instructions: RecipeInstruction.fromParsed(parsed.instructions),
+      name: parsed.name,
+    );
+  }
 }

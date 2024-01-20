@@ -17,7 +17,7 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Recipe(
-      uuid: fields[0] as Uuid,
+      uuid: fields[0] as String,
       description: fields[1] as String,
       image: fields[2] as RecipeImage,
       ingredients: (fields[3] as List).cast<Ingredient>(),

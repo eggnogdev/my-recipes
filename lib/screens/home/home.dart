@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-import 'package:my_recipies/models/hive_boxes.dart';
-import 'package:my_recipies/models/recipe.m.dart';
+import 'package:my_recipies/screens/create_recipe/create_recipe.dart';
 import 'package:my_recipies/screens/home/widgets/recipe_card.dart';
+import 'package:my_recipies/state/home.s.dart';
 import 'package:my_recipies/widgets/expandable_fab.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({
     super.key,
   });
 
-  final recipies = Hive.box<Recipe>(HiveBox.recipies.name).values;
   final controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
+    final state = Provider.of<HomeState>(context);
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
@@ -100,29 +102,39 @@ class HomeScreen extends StatelessWidget {
         icon: Icons.add_rounded,
         label: 'Create',
         scrollController: controller,
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) => const CreateRecipeScreen(),
+          );
+        },
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
         ),
-        child: ListView.builder(
-          controller: controller,
-          itemBuilder: (context, index) => [
-            Container(
-              margin: const EdgeInsets.only(
-                top: 32.0,
-                bottom: 20.0,
+        child: Observer(builder: (context) {
+          return ListView.builder(
+            controller: controller,
+            itemBuilder: (context, index) => [
+              Container(
+                margin: const EdgeInsets.only(
+                  top: 32.0,
+                  bottom: 20.0,
+                ),
+                child: Text(
+                  'MYRecipies',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
               ),
-              child: Text(
-                'MYRecipies',
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-            ),
-            for (final recipe in recipies) RecipeCard(recipe: recipe),
-          ][index],
-          itemCount: 1 + recipies.length,
-        ),
+              for (final recipe in state.recipies)
+                RecipeCard(
+                  recipe: recipe,
+                ),
+            ][index],
+            itemCount: 1 + state.recipies.length,
+          );
+        }),
       ),
     );
   }
