@@ -56,7 +56,7 @@ class RecipeCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        recipe.title,
+                        recipe.name,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Text(

@@ -17,19 +17,16 @@ class IngredientAdapter extends TypeAdapter<Ingredient> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Ingredient(
-      measurement: fields[0] as Measurement,
-      item: fields[1] as String,
+      text: fields[0] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Ingredient obj) {
     writer
-      ..writeByte(2)
-      ..writeByte(0)
-      ..write(obj.measurement)
       ..writeByte(1)
-      ..write(obj.item);
+      ..writeByte(0)
+      ..write(obj.text);
   }
 
   @override
