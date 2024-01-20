@@ -50,6 +50,7 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
                 try {
                   final parsed =
                       await parser.RecipeParser().parseUrl(controller.text);
+
                   if (parsed == null) {
                     setState(() {
                       errorText = 'Failed to find recipe';
@@ -57,41 +58,68 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
                   } else {
                     final box = Hive.box<Recipe>(HiveBox.recipes.name);
                     final recipe = Recipe.fromParsed(parsed);
+
                     await box.put(recipe.uuid, recipe);
+
                     final provider = Provider.of<HomeState>(
                       context,
                       listen: false,
                     );
                     provider.loadRecipes();
+
+                    context.pop();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        behavior: SnackBarBehavior.floating,
+                        content: Text(
+                          'Added recipe!',
+                        ),
+                      ),
+                    );
                   }
                 } on FormatException catch (e) {
                   setState(() {
                     errorText = e.message;
                   });
                 } on Exception catch (e) {
-                  await showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: const Text(
-                        'Unhandled Exception',
+                  context.pop();
+
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      behavior: SnackBarBehavior.floating,
+                      content: const Text('Failed to add recipe.'),
+                      action: SnackBarAction(
+                        label: 'View Error',
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text(
+                                'Unhandled Exception',
+                              ),
+                              content: Text('$e'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    context.pop();
+                                  },
+                                  child: const Text(
+                                    'Done',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
                       ),
-                      content: Text('$e'),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            context.pop();
-                          },
-                          child: const Text(
-                            'Done',
-                          ),
-                        ),
-                      ],
                     ),
                   );
                 } finally {
-                  setState(() {
-                    loading = false;
-                  });
+                  if (mounted) {
+                    setState(() {
+                      loading = false;
+                    });
+                  }
                 }
               },
               child: !loading

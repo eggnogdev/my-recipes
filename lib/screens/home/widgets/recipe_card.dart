@@ -14,7 +14,7 @@ class RecipeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.width / 4;
+    final height = MediaQuery.of(context).size.width / 3.8;
 
     return Card(
       elevation: 0,
@@ -36,7 +36,6 @@ class RecipeCard extends StatelessWidget {
           context.go('/recipes/${recipe.uuid}');
         },
         child: SizedBox(
-          height: height,
           child: Row(
             children: [
               Expanded(
@@ -54,23 +53,26 @@ class RecipeCard extends StatelessWidget {
                       Text(
                         recipe.name,
                         style: Theme.of(context).textTheme.titleMedium,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       Text(
                         recipe.description,
                         style: Theme.of(context).textTheme.bodySmall,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
                       ),
                     ],
                   ),
                 ),
               ),
               Container(
-                width: height,
                 height: height,
+                width: height,
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.tertiaryContainer,
                   borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(16.0),
-                    bottomRight: Radius.circular(16.0),
+                    topRight: Radius.circular(12.0),
+                    bottomRight: Radius.circular(12.0),
                   ),
                   image: const DecorationImage(
                     image: AssetImage('assets/cake.jpg'),
