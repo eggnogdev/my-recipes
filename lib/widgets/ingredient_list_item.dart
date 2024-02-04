@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_recipes/widgets/checkbox.dart';
 
 class IngredientListItem extends StatelessWidget {
   const IngredientListItem({
@@ -11,14 +12,9 @@ class IngredientListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      tileColor: Theme.of(context).colorScheme.surface,
-      title: const Text(
-        'Flour',
-      ),
-      subtitle: const Text('450g'),
-      leading: Icon(
-        Icons.circle,
-        color: Theme.of(context).colorScheme.onSurfaceVariant,
+      trailing: const ManagedCheckbox(),
+      title: Text(
+        title,
       ),
     );
   }
