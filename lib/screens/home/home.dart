@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_recipes/screens/create_recipe/create_recipe.dart';
+import 'package:my_recipes/screens/home/state/home.s.dart';
 import 'package:my_recipes/screens/home/widgets/recipe_card.dart';
-import 'package:my_recipes/state/home.s.dart';
 import 'package:my_recipes/widgets/expandable_fab.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';

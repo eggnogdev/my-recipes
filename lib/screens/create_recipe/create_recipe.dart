@@ -6,7 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:html_recipe_parser/html_recipe_parser.dart' as parser;
 import 'package:my_recipes/models/hive_boxes.dart';
 import 'package:my_recipes/models/recipe.m.dart';
-import 'package:my_recipes/state/home.s.dart';
+import 'package:my_recipes/screens/home/state/home.s.dart';
 import 'package:provider/provider.dart';
 
 class CreateRecipeScreen extends StatefulWidget {
@@ -56,16 +56,14 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
                       errorText = 'Failed to find recipe';
                     });
                   } else {
-                    final box = Hive.box<Recipe>(HiveBox.recipes.name);
                     final recipe = Recipe.fromParsed(parsed);
-
-                    await box.put(recipe.uuid, recipe);
 
                     final provider = Provider.of<HomeState>(
                       context,
                       listen: false,
                     );
-                    provider.loadRecipes();
+
+                    await provider.addRecipe(recipe);
 
                     context.pop();
                     ScaffoldMessenger.of(context).showSnackBar(

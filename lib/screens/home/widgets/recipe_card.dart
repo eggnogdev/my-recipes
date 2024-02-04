@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_recipes/models/recipe.m.dart';
+import 'package:my_recipes/screens/home/state/home.s.dart';
+import 'package:provider/provider.dart';
 
 class RecipeCard extends StatelessWidget {
   const RecipeCard({
@@ -34,6 +36,42 @@ class RecipeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0),
         onTap: () {
           context.go('/recipes/${recipe.uuid}');
+        },
+        onLongPress: () {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text(
+                'Delete Recipe',
+              ),
+              content: Text(
+                'Do you want to delete ${recipe.name}?',
+              ),
+              actions: [
+                OutlinedButton(
+                  onPressed: () {
+                    context.pop();
+                  },
+                  child: const Text(
+                    'Cancel',
+                  ),
+                ),
+                FilledButton(
+                  onPressed: () async {
+                    final provider = Provider.of<HomeState>(
+                      context,
+                      listen: false,
+                    );
+                    provider.deleteRecipe(recipe);
+                    context.pop();
+                  },
+                  child: const Text(
+                    'Delete',
+                  ),
+                ),
+              ],
+            ),
+          );
         },
         child: SizedBox(
           child: Row(

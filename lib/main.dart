@@ -8,9 +8,9 @@ import 'package:my_recipes/models/recipe.m.dart';
 import 'package:my_recipes/models/recipe_image.m.dart';
 import 'package:my_recipes/models/recipe_instruction.m.dart';
 import 'package:my_recipes/screens/home/home.dart';
+import 'package:my_recipes/screens/home/state/home.s.dart';
 import 'package:my_recipes/screens/recipe/recipe.dart';
 import 'package:my_recipes/screens/recipe/state/recipe.s.dart';
-import 'package:my_recipes/state/home.s.dart';
 import 'package:my_recipes/theme/color_schemes.g.dart';
 import 'package:provider/provider.dart';
 
