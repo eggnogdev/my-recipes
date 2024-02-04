@@ -8,13 +8,18 @@ class ExpandableFloatingActionButton extends StatefulWidget {
   final String label;
   final ScrollController scrollController;
   final void Function() onPressed;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
 
-  const ExpandableFloatingActionButton(
-      {super.key,
-      required this.icon,
-      required this.label,
-      required this.scrollController,
-      required this.onPressed});
+  const ExpandableFloatingActionButton({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.scrollController,
+    required this.onPressed,
+    this.backgroundColor,
+    this.foregroundColor,
+  });
 
   @override
   State<ExpandableFloatingActionButton> createState() =>
@@ -54,6 +59,8 @@ class _ExpandableFloatingActionButtonState
           _extended ? null : const EdgeInsets.symmetric(horizontal: 16),
       onPressed: widget.onPressed,
       icon: Icon(widget.icon),
+      backgroundColor: widget.backgroundColor,
+      foregroundColor: widget.foregroundColor,
       label: AnimatedSize(
         duration: const Duration(milliseconds: 200),
         child: _extended ? Text(widget.label) : Container(),

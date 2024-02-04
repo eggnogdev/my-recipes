@@ -101,6 +101,8 @@ class HomeScreen extends StatelessWidget {
       floatingActionButton: ExpandableFloatingActionButton(
         icon: Icons.add_rounded,
         label: 'Create',
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
         scrollController: controller,
         onPressed: () {
           showDialog(
