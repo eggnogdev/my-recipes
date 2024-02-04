@@ -54,8 +54,7 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
                       errorText = 'Failed to find recipe';
                     });
                   } else {
-                    final recipe = Recipe.fromParsed(parsed);
-
+                    final recipe = await Recipe.fromParsed(parsed);
                     final provider = Provider.of<HomeState>(
                       context,
                       listen: false,

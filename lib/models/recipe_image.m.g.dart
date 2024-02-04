@@ -18,15 +18,18 @@ class RecipeImageAdapter extends TypeAdapter<RecipeImage> {
     };
     return RecipeImage(
       url: fields[0] as String,
+      filePath: fields[1] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, RecipeImage obj) {
     writer
-      ..writeByte(1)
+      ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.url);
+      ..write(obj.url)
+      ..writeByte(1)
+      ..write(obj.filePath);
   }
 
   @override

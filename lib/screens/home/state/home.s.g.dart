@@ -24,6 +24,22 @@ mixin _$HomeState on _HomeState, Store {
     });
   }
 
+  late final _$addRecipeAsyncAction =
+      AsyncAction('_HomeState.addRecipe', context: context);
+
+  @override
+  Future<void> addRecipe(Recipe recipe) {
+    return _$addRecipeAsyncAction.run(() => super.addRecipe(recipe));
+  }
+
+  late final _$deleteRecipeAsyncAction =
+      AsyncAction('_HomeState.deleteRecipe', context: context);
+
+  @override
+  Future<void> deleteRecipe(Recipe recipe) {
+    return _$deleteRecipeAsyncAction.run(() => super.deleteRecipe(recipe));
+  }
+
   late final _$_HomeStateActionController =
       ActionController(name: '_HomeState', context: context);
 

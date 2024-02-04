@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_recipes/models/recipe.m.dart';
@@ -112,8 +114,8 @@ class RecipeCard extends StatelessWidget {
                     topRight: Radius.circular(12.0),
                     bottomRight: Radius.circular(12.0),
                   ),
-                  image: const DecorationImage(
-                    image: AssetImage('assets/cake.jpg'),
+                  image: DecorationImage(
+                    image: FileImage(File(recipe.image.filePath)),
                     fit: BoxFit.cover,
                   ),
                 ),

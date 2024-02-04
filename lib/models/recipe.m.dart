@@ -42,12 +42,12 @@ class Recipe extends HiveObject implements parser.Recipe {
   @override
   final String name;
 
-  factory Recipe.fromParsed(parser.Recipe parsed) {
+  static Future<Recipe> fromParsed(parser.Recipe parsed) async {
     final uuid = const Uuid().v1();
     return Recipe(
       uuid: uuid,
       description: parsed.description,
-      image: RecipeImage.fromParsed(
+      image: await RecipeImage.fromParsed(
         parsed.image,
       ),
       ingredients: Ingredient.fromParsed(parsed.ingredients),
