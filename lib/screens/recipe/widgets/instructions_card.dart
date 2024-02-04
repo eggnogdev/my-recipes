@@ -19,21 +19,33 @@ class _InstructionsCardState extends State<InstructionsCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Theme.of(context).colorScheme.tertiaryContainer,
       elevation: 0,
-      child: Padding(
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          vertical: 6.0,
+        ),
         padding: const EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Theme.of(context).colorScheme.outline,
+            width: 1.0,
+          ),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              children: [
-                Text(
-                  'Directions',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ],
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text(
+                'Instructions',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              subtitle: Text(
+                '${step + 1} of ${widget.recipe.instructions.length}',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
             ),
             Text(
               widget.recipe.instructions[step].text,

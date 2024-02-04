@@ -32,13 +32,12 @@ class RecipeScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            splashRadius: 20.0,
-            onPressed: () {},
             icon: Icon(
               Icons.more_vert_rounded,
               color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
-          )
+            onPressed: null,
+          ),
         ],
       ),
       backgroundColor: Theme.of(context).colorScheme.background,

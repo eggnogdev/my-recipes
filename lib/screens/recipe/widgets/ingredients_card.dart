@@ -14,17 +14,25 @@ class IngredientsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0.0,
-      color: Theme.of(context).colorScheme.surface,
-      child: ListView.separated(
-        itemBuilder: (context, index) {
-          return IngredientListItem(
-            title: recipe.ingredients.elementAt(index).text,
-          );
-        },
-        separatorBuilder: (context, index) {
-          return const Divider();
-        },
-        itemCount: recipe.ingredients.length,
+      child: Container(
+        margin: const EdgeInsets.symmetric(
+          vertical: 6.0,
+        ),
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 1.0,
+            color: Theme.of(context).colorScheme.outline,
+          ),
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return IngredientListItem(
+              title: recipe.ingredients.elementAt(index).text,
+            );
+          },
+          itemCount: recipe.ingredients.length,
+        ),
       ),
     );
   }

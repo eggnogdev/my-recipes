@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
             size: 24.0,
             color: Theme.of(context).colorScheme.onSurfaceVariant,
           ),
-          onPressed: () {},
+          onPressed: null,
         ),
         actions: [
           IconButton(
@@ -44,13 +44,13 @@ class HomeScreen extends StatelessWidget {
                     'Source code',
                   ),
                   content: const Text(
-                    'View the full source code on Codeberg!',
+                    'View the full source code on GitHub!',
                   ),
                   actions: [
                     TextButton(
                       onPressed: () {
                         launchUrl(
-                          Uri.parse('https://codeberg.org/eggnog/my_recipes'),
+                          Uri.parse('https://github.com/eggnogdev/my_recipes'),
                           mode: LaunchMode.externalApplication,
                         );
                       },
