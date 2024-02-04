@@ -80,35 +80,23 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
                   });
                 } on Exception catch (e) {
                   context.pop();
-
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      behavior: SnackBarBehavior.floating,
-                      content: const Text('Failed to add recipe.'),
-                      action: SnackBarAction(
-                        label: 'View Error',
-                        onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              title: const Text(
-                                'Unhandled Exception',
-                              ),
-                              content: Text('$e'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    context.pop();
-                                  },
-                                  child: const Text(
-                                    'Done',
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      title: const Text(
+                        'Unhandled Exception',
                       ),
+                      content: Text('$e'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            context.pop();
+                          },
+                          child: const Text(
+                            'Done',
+                          ),
+                        ),
+                      ],
                     ),
                   );
                 } finally {
