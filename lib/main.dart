@@ -29,11 +29,21 @@ void main() async {
 
   await Hive.openBox<Recipe>(HiveBox.recipes.name);
 
-  runApp(const MYrecipes());
+  final homeState = HomeState();
+  homeState.loadRecipes();
+
+  runApp(MYrecipes(
+    homeState: homeState,
+  ));
 }
 
 class MYrecipes extends StatelessWidget {
-  const MYrecipes({super.key});
+  const MYrecipes({
+    super.key,
+    required this.homeState,
+  });
+
+  final HomeState homeState;
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +66,8 @@ class MYrecipes extends StatelessWidget {
       ],
     );
 
-    return Provider(
-      create: (context) => HomeState()..loadRecipes(),
+    return Provider.value(
+      value: homeState,
       child: MaterialApp.router(
         theme: ThemeData(
           useMaterial3: true,
