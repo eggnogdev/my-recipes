@@ -4,9 +4,11 @@ An app to aggregate your favorite recipes in one place
 
 ## Screenshots
 
-<img src="./screenshots/create_recipe.png" width=30%>
-<img src="./screenshots/home_screen.png" width=30%>
-<img src="./screenshots/view_recipe.png" width=30%>
+<div style="display:inline-block">
+  <img src="./screenshots/create_recipe.png" width=30%>
+  <img src="./screenshots/home_screen.png" width=30%>
+  <img src="./screenshots/view_recipe.png" width=30%>
+<div>
 
 ## How to use
 
