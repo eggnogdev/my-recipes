@@ -17,8 +17,8 @@ class RecipeImageAdapter extends TypeAdapter<RecipeImage> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return RecipeImage(
-      url: fields[0] as String,
       filePath: fields[1] as String,
+      url: fields[0] as String,
     );
   }
 

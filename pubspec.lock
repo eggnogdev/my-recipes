@@ -340,11 +340,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "0.1.0"
-      resolved-ref: "0e1dbb3ad880a84f7a7b6728c9147906a18774e1"
-      url: "https://codeberg.org/eggnog/html_recipe_parser.git"
+      ref: "0.3.0"
+      resolved-ref: "3c636869a0ab3f8648c14f3eb1abf5d88292370a"
+      url: "https://github.com/eggnogdev/html_recipe_parser.git"
     source: git
-    version: "0.1.0"
+    version: "0.3.0"
   http:
     dependency: "direct main"
     description:

@@ -17,6 +17,7 @@ class Recipe extends HiveObject implements parser.Recipe {
     required this.ingredients,
     required this.instructions,
     required this.name,
+    this.url,
   });
 
   @HiveField(0)
@@ -42,6 +43,10 @@ class Recipe extends HiveObject implements parser.Recipe {
   @override
   final String name;
 
+  @HiveField(6)
+  @override
+  final String? url;
+
   static Future<Recipe> fromParsed(parser.Recipe parsed) async {
     final uuid = const Uuid().v1();
     return Recipe(
@@ -53,6 +58,7 @@ class Recipe extends HiveObject implements parser.Recipe {
       ingredients: Ingredient.fromParsed(parsed.ingredients),
       instructions: RecipeInstruction.fromParsed(parsed.instructions),
       name: parsed.name,
+      url: parsed.url,
     );
   }
 }

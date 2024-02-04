@@ -2,7 +2,7 @@ name: my_recipes
 description: A recipe aggregator and viewer
 publish_to: 'none'
 
-version: 0.1.0+2
+version: 0.2.0+3
 
 environment:
   sdk: '>=3.1.5 <4.0.0'
@@ -23,8 +23,8 @@ dependencies:
   uuid: ^4.2.2
   html_recipe_parser:
     git:
-      url: https://codeberg.org/eggnog/html_recipe_parser.git
-      ref: 0.1.0
+      url: https://github.com/eggnogdev/html_recipe_parser.git
+      ref: 0.3.0
   provider: ^6.1.1
   path_provider: ^2.1.2
   http: ^1.2.0
