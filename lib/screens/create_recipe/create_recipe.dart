@@ -45,6 +45,8 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
                   loading = true;
                 });
 
+                FocusScope.of(context).unfocus();
+
                 try {
                   final parsed =
                       await parser.RecipeParser().parseUrl(controller.text);
@@ -121,7 +123,13 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
                   ? const Text(
                       'Save',
                     )
-                  : const CircularProgressIndicator(),
+                  : const SizedBox(
+                      height: 20.0,
+                      width: 20.0,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 3.0,
+                      ),
+                    ),
             )
           ],
         ),
@@ -135,6 +143,7 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
           child: Column(
             children: [
               TextFormField(
+                readOnly: loading,
                 controller: controller,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
