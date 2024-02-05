@@ -126,7 +126,7 @@ class HomeScreen extends StatelessWidget {
                   bottom: 20.0,
                 ),
                 child: Text(
-                  'MYRecipes',
+                  'MYrecipes',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ),
