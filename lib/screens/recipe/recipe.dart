@@ -22,7 +22,6 @@ class RecipeScreen extends StatelessWidget {
           state.recipe.name,
         ),
         leading: IconButton(
-          splashRadius: 20.0,
           onPressed: () {
             context.pop();
           },
