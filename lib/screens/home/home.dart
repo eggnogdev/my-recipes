@@ -115,6 +115,9 @@ class HomeScreen extends StatelessWidget {
         ),
         child: Observer(builder: (context) {
           return ListView.builder(
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.of(context).size.width / 3.8,
+            ),
             controller: controller,
             itemBuilder: (context, index) => [
               Container(
