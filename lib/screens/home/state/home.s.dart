@@ -9,13 +9,21 @@ class HomeState extends _HomeState with _$HomeState {}
 
 abstract class _HomeState with Store {
   @observable
-  Iterable<Recipe> recipes = [];
+  List<Recipe> recipes = [];
 
   /// Load recipes from [Hive] into `this.recipes`
   @action
   void loadRecipes() {
     final box = _recipeBox();
-    recipes = box.values;
+    final values = box.values;
+    recipes = values.toList();
+    sortRecipes();
+  }
+
+  /// sort the recipes is `this.recipes` alphabetically
+  @action
+  void sortRecipes() {
+    recipes.sort((a, b) => a.name.compareTo(b.name));
   }
 
   /// Add `recipe` into [Hive] then run `this.loadRecipes()`

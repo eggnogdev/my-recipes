@@ -12,13 +12,13 @@ mixin _$HomeState on _HomeState, Store {
   late final _$recipesAtom = Atom(name: '_HomeState.recipes', context: context);
 
   @override
-  Iterable<Recipe> get recipes {
+  List<Recipe> get recipes {
     _$recipesAtom.reportRead();
     return super.recipes;
   }
 
   @override
-  set recipes(Iterable<Recipe> value) {
+  set recipes(List<Recipe> value) {
     _$recipesAtom.reportWrite(value, super.recipes, () {
       super.recipes = value;
     });
@@ -49,6 +49,17 @@ mixin _$HomeState on _HomeState, Store {
         name: '_HomeState.loadRecipes');
     try {
       return super.loadRecipes();
+    } finally {
+      _$_HomeStateActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void sortRecipes() {
+    final _$actionInfo = _$_HomeStateActionController.startAction(
+        name: '_HomeState.sortRecipes');
+    try {
+      return super.sortRecipes();
     } finally {
       _$_HomeStateActionController.endAction(_$actionInfo);
     }
