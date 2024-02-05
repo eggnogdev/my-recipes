@@ -133,11 +133,12 @@ class _CreateRecipeScreenState extends State<CreateRecipeScreen> {
               TextFormField(
                 readOnly: loading,
                 controller: controller,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  label: Text(
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  label: const Text(
                     'Recipe link',
                   ),
+                  errorText: errorText,
                 ),
               ),
             ],
