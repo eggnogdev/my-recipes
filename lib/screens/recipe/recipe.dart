@@ -21,6 +21,10 @@ class RecipeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final prefs = Provider.of<PreferencesState>(context);
 
+    if (prefs.recipeKeepAwake) {
+      WakelockPlus.enable();
+    }
+
     return PopScope(
       canPop: false,
       onPopInvoked: (_) {
