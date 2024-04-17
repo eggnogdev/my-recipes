@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mobx/mobx.dart';
-import 'package:my_recipes/models/hive_boxes.dart';
+import 'package:my_recipes/enums/hive_boxes.dart';
 import 'package:my_recipes/models/recipe.m.dart';
 
 part 'home.s.g.dart';
