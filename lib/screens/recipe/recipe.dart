@@ -25,6 +25,7 @@ class RecipeScreen extends StatelessWidget {
       canPop: false,
       onPopInvoked: (_) {
         WakelockPlus.disable();
+        Navigator.of(context).pop();
       },
       child: Scaffold(
         appBar: AppBar(
