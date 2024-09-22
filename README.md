@@ -17,8 +17,3 @@ simply paste the link of a recipe into the app and it will be fetched. Now you c
 ## Early versions
 
 This app is in its very early stages, so functionality is very limited. Any feedback is greatly appreciated!
-
-## Support this project
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P5GQJKV)
-
