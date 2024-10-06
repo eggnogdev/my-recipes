@@ -3,5 +3,5 @@
     if using nix develop, change this path to the path given by `which flutter` while in the development shell
     otherwise, comment it out or change it to the correct path for your flutter sdk
   */
-  "dart.flutterSdkPath": "/nix/store/y8c32gi8z15isnjb501806zfygd3fqx1-flutter-wrapped-3.16.7-sdk-links/bin/flutter",
+  "dart.flutterSdkPath": "/nix/store/y8c32gi8z15isnjb501806zfygd3fqx1-flutter-wrapped-3.16.7-sdk-links/bin/flutter"
 }

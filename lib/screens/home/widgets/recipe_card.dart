@@ -99,7 +99,7 @@ class RecipeCard extends StatelessWidget {
                         recipe.description,
                         style: Theme.of(context).textTheme.bodySmall,
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 3,
+                        maxLines: 2,
                       ),
                     ],
                   ),
