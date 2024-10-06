@@ -47,9 +47,13 @@ class _InstructionsCardState extends State<InstructionsCard> {
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
-            Text(
-              widget.recipe.instructions[step].text,
-              style: Theme.of(context).textTheme.bodyLarge,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Text(
+                  widget.recipe.instructions[step].text,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
