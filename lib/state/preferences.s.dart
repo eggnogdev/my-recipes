@@ -1,15 +1,14 @@
 import 'package:mobx/mobx.dart';
 import 'package:hive/hive.dart';
 
-import 'package:my_recipes/enums/hive_boxes.dart';
-import 'package:my_recipes/enums/preferences.dart';
+import 'package:myrecipes/enums/hive_boxes.dart';
+import 'package:myrecipes/enums/preferences.dart';
 
 part 'preferences.s.g.dart';
 
 class PreferencesState extends _PreferencesState with _$PreferencesState {}
 
 abstract class _PreferencesState with Store {
-
   @observable
   bool recipeKeepAwake = true;
 

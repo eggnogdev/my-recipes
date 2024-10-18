@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:my_recipes/models/recipe.m.dart';
-import 'package:my_recipes/screens/home/state/home.s.dart';
+import 'package:myrecipes/models/recipe.m.dart';
+import 'package:myrecipes/screens/home/state/home.s.dart';
 import 'package:provider/provider.dart';
 
 class RecipeCard extends StatelessWidget {

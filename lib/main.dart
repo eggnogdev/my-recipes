@@ -4,17 +4,17 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
-import 'package:my_recipes/enums/hive_boxes.dart';
-import 'package:my_recipes/models/ingredient.m.dart';
-import 'package:my_recipes/models/recipe.m.dart';
-import 'package:my_recipes/models/recipe_image.m.dart';
-import 'package:my_recipes/models/recipe_instruction.m.dart';
-import 'package:my_recipes/screens/home/home.dart';
-import 'package:my_recipes/screens/home/state/home.s.dart';
-import 'package:my_recipes/screens/recipe/recipe.dart';
-import 'package:my_recipes/screens/recipe/state/recipe.s.dart';
-import 'package:my_recipes/theme/color_schemes.g.dart';
-import 'package:my_recipes/state/preferences.s.dart';
+import 'package:myrecipes/enums/hive_boxes.dart';
+import 'package:myrecipes/models/ingredient.m.dart';
+import 'package:myrecipes/models/recipe.m.dart';
+import 'package:myrecipes/models/recipe_image.m.dart';
+import 'package:myrecipes/models/recipe_instruction.m.dart';
+import 'package:myrecipes/screens/home/home.dart';
+import 'package:myrecipes/screens/home/state/home.s.dart';
+import 'package:myrecipes/screens/recipe/recipe.dart';
+import 'package:myrecipes/screens/recipe/state/recipe.s.dart';
+import 'package:myrecipes/theme/color_schemes.g.dart';
+import 'package:myrecipes/state/preferences.s.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

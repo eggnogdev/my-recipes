@@ -4,10 +4,10 @@ import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-import 'package:my_recipes/screens/recipe/state/recipe.s.dart';
-import 'package:my_recipes/screens/recipe/widgets/instructions_card.dart';
-import 'package:my_recipes/screens/recipe/widgets/ingredients_card.dart';
-import 'package:my_recipes/state/preferences.s.dart';
+import 'package:myrecipes/screens/recipe/state/recipe.s.dart';
+import 'package:myrecipes/screens/recipe/widgets/instructions_card.dart';
+import 'package:myrecipes/screens/recipe/widgets/ingredients_card.dart';
+import 'package:myrecipes/state/preferences.s.dart';
 
 class RecipeScreen extends StatelessWidget {
   const RecipeScreen({

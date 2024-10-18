@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_recipes/widgets/checkbox.dart';
+import 'package:myrecipes/widgets/checkbox.dart';
 
 class IngredientListItem extends StatelessWidget {
   const IngredientListItem({

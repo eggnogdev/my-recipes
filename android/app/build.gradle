@@ -32,8 +32,8 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    namespace "dev.eggnog.my_recipes"
-    compileSdkVersion flutter.compileSdkVersion
+    namespace "dev.eggnog.myrecipes"
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -50,7 +50,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "dev.eggnog.my_recipes"
+        applicationId "dev.eggnog.myrecipes"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
