@@ -1,35 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'recipe_image.m.dart';
+part of 'recipe_instruction.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class RecipeImageAdapter extends TypeAdapter<RecipeImage> {
+class RecipeInstructionAdapter extends TypeAdapter<RecipeInstruction> {
   @override
-  final int typeId = 2;
+  final int typeId = 3;
 
   @override
-  RecipeImage read(BinaryReader reader) {
+  RecipeInstruction read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return RecipeImage(
-      filePath: fields[1] as String,
-      url: fields[0] as String,
+    return RecipeInstruction(
+      text: fields[0] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, RecipeImage obj) {
+  void write(BinaryWriter writer, RecipeInstruction obj) {
     writer
-      ..writeByte(2)
-      ..writeByte(0)
-      ..write(obj.url)
       ..writeByte(1)
-      ..write(obj.filePath);
+      ..writeByte(0)
+      ..write(obj.text);
   }
 
   @override
@@ -38,7 +35,7 @@ class RecipeImageAdapter extends TypeAdapter<RecipeImage> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is RecipeImageAdapter &&
+      other is RecipeInstructionAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

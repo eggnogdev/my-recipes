@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:myrecipes/state/home/home_state.dart';
+import 'package:myrecipes/state/recipe/recipe_state.dart';
 import 'package:provider/provider.dart';
 
 import 'package:myrecipes/enums/hive_boxes.dart';
-import 'package:myrecipes/models/ingredient.m.dart';
-import 'package:myrecipes/models/recipe.m.dart';
-import 'package:myrecipes/models/recipe_image.m.dart';
-import 'package:myrecipes/models/recipe_instruction.m.dart';
+import 'package:myrecipes/models/ingredient.dart';
+import 'package:myrecipes/models/recipe.dart';
+import 'package:myrecipes/models/recipe_image.dart';
+import 'package:myrecipes/models/recipe_instruction.dart';
 import 'package:myrecipes/screens/home/home.dart';
-import 'package:myrecipes/screens/home/state/home.s.dart';
 import 'package:myrecipes/screens/recipe/recipe.dart';
-import 'package:myrecipes/screens/recipe/state/recipe.s.dart';
 import 'package:myrecipes/theme/color_schemes.g.dart';
 import 'package:myrecipes/state/preferences.s.dart';
 

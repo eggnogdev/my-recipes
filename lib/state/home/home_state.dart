@@ -1,9 +1,9 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mobx/mobx.dart';
 import 'package:myrecipes/enums/hive_boxes.dart';
-import 'package:myrecipes/models/recipe.m.dart';
+import 'package:myrecipes/models/recipe.dart';
 
-part 'home.s.g.dart';
+part 'home_state.g.dart';
 
 class HomeState extends _HomeState with _$HomeState {}
 

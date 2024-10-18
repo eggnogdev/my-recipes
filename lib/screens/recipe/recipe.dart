@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myrecipes/state/recipe/recipe_state.dart';
+import 'package:myrecipes/widgets/recipe/ingredients_card.dart';
+import 'package:myrecipes/widgets/recipe/instructions_card.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-import 'package:myrecipes/screens/recipe/state/recipe.s.dart';
-import 'package:myrecipes/screens/recipe/widgets/instructions_card.dart';
-import 'package:myrecipes/screens/recipe/widgets/ingredients_card.dart';
 import 'package:myrecipes/state/preferences.s.dart';
 
 class RecipeScreen extends StatelessWidget {

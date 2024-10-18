@@ -2,11 +2,11 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:html_recipe_parser/html_recipe_parser.dart' as parser;
 import 'package:uuid/uuid.dart';
 
-import 'ingredient.m.dart';
-import 'recipe_image.m.dart';
-import 'recipe_instruction.m.dart';
+import 'ingredient.dart';
+import 'recipe_image.dart';
+import 'recipe_instruction.dart';
 
-part 'recipe.m.g.dart';
+part 'recipe.g.dart';
 
 @HiveType(typeId: 0)
 class Recipe extends HiveObject implements parser.Recipe {

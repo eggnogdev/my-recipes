@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:html_recipe_parser/html_recipe_parser.dart' as parser;
-import 'package:myrecipes/models/recipe.m.dart';
-import 'package:myrecipes/screens/home/state/home.s.dart';
+import 'package:myrecipes/models/recipe.dart';
+import 'package:myrecipes/state/home/home_state.dart';
 import 'package:provider/provider.dart';
 
 class CreateRecipeScreen extends StatefulWidget {

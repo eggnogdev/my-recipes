@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'recipe.s.dart';
+part of 'recipe_state.dart';
 
 // **************************************************************************
 // StoreGenerator

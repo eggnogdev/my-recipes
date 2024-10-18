@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myrecipes/models/recipe.m.dart';
+import 'package:myrecipes/models/recipe.dart';
 import 'package:myrecipes/widgets/ingredient_list_item.dart';
 
 class IngredientsCard extends StatelessWidget {

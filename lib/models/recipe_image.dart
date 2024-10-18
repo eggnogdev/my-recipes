@@ -5,7 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:html_recipe_parser/html_recipe_parser.dart' as parser;
 import 'package:path_provider/path_provider.dart';
 
-part 'recipe_image.m.g.dart';
+part 'recipe_image.g.dart';
 
 @HiveType(typeId: 2)
 class RecipeImage extends HiveObject implements parser.RecipeImage {

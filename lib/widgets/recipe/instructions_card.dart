@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myrecipes/models/recipe.m.dart';
+import 'package:myrecipes/models/recipe.dart';
 
 class InstructionsCard extends StatefulWidget {
   const InstructionsCard({

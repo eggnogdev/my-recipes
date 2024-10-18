@@ -1,7 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:html_recipe_parser/html_recipe_parser.dart' as parser;
 
-part 'recipe_instruction.m.g.dart';
+part 'recipe_instruction.g.dart';
 
 @HiveType(typeId: 3)
 class RecipeInstruction extends HiveObject implements parser.RecipeInstruction {
